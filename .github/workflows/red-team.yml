@@ -1,0 +1,28 @@
+name: red-team
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  red-team:
+    # Live: the bot runs against https://api.curbi.io/v1/check. A real model runs when the ANTHROPIC_API_KEY secret is
+    # set; otherwise scripted model outputs (replay) do, and the transcript says which.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Red team
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: if [ -n "$ANTHROPIC_API_KEY" ]; then node redteam.mjs; else node redteam.mjs --replay; fi
+      - run: node check-catches.mjs
+  regressions:
+    # Every committed catch, replayed by the Curbi Check Action on each push and pull request.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Curbi-Inc/curbi-check-action@v1
+        with:
+          path: curbi

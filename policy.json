@@ -1,0 +1,70 @@
+{
+  "name": "Acme billing (from curbi.io/policies/saas-billing.json)",
+  "prices": [
+    {
+      "item": "Starter",
+      "amount": 19
+    },
+    {
+      "item": "Pro",
+      "amount": 49
+    },
+    {
+      "item": "Team",
+      "amount": 99
+    }
+  ],
+  "forbid": [
+    {
+      "id": "unlimited",
+      "phrases": [
+        "unlimited"
+      ],
+      "why": "Every plan has published limits."
+    },
+    {
+      "id": "lifetime",
+      "phrases": [
+        "lifetime deal",
+        "lifetime access"
+      ],
+      "why": "There is no lifetime plan."
+    },
+    {
+      "id": "price-lock",
+      "phrases": [
+        "never raise prices",
+        "price lock"
+      ],
+      "why": "Prices can change with notice."
+    },
+    {
+      "id": "uptime",
+      "phrases": [
+        "100% uptime"
+      ],
+      "why": "Only the published SLA applies."
+    },
+    {
+      "id": "guarantee",
+      "phrases": [
+        "guarantee"
+      ],
+      "why": "Outcomes are not guaranteed."
+    }
+  ],
+  "actions": {
+    "upgraded": "billing.upgrade",
+    "downgraded": "billing.downgrade",
+    "cancelled": "billing.cancel",
+    "refunded": "billing.refund",
+    "credited": "billing.credit",
+    "extended": "billing.trial_extend",
+    "paused": "billing.pause"
+  },
+  "discounts": [
+    {
+      "percent": 20
+    }
+  ]
+}

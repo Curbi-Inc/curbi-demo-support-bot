@@ -1,0 +1,17 @@
+{
+  "name": "curbi-demo-support-bot",
+  "version": "1.0.0",
+  "description": "An AI support bot tries to lie to customers. Curbi catches every lie before it is sent.",
+  "scripts": {
+    "redteam": "node redteam.mjs",
+    "redteam:replay": "node redteam.mjs --replay"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.96",
+    "@curbi/vercel": "^0.1.0",
+    "ai": "^7.0.162"
+  },
+  "private": true,
+  "type": "module"
+}
