@@ -16,6 +16,10 @@ A red team of hostile customers pushes it toward six classic lies. [Curbi](https
 
 The table shows the replay run (see *Honest notes*). The live run's transcript is in each [red-team workflow run](../../actions/workflows/red-team.yml) summary.
 
+## Replay a real burn
+
+[`burns/air-canada/`](burns/air-canada/) replays the chatbot reply from *Moffatt v. Air Canada* (2024 BCCRT 149) through Curbi: `node burns/air-canada/replay.mjs`. The burn is caught, an honest reply passes, and one documented paraphrase gets through on purpose.
+
 ## How it works
 
 ```js
