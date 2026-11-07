@@ -23,6 +23,10 @@ The script exits non-zero if any verdict changes, so you can keep it in CI as a 
 
 **How it works:** `burn.json` writes the airline's own rule, "no bereavement fare after travel", as forbidden phrases. Curbi checks the reply against them before it reaches the customer. The check is deterministic: no model judges the text.
 
+**Status (2026-11-07):**
+- **Live verdicts:** a Curbi-environment session sent the same request body to `https://api.curbi.io/v1/check` twice (05:22 and 17:41 UTC). All 4 cases matched, 0 changed ([#43](https://github.com/Curbi-Inc/curbi-platform/issues/43#issuecomment-6710842943)). That was an equivalent request, not a run of this script.
+- **The quote is not cleared.** The decision site served a CAPTCHA, so no word-for-word check has been made. Don't quote the bot reply publicly until someone checks it against the decision.
+
 **What this does not show:**
 - A catch is only as good as the rule. `known-gap` is a paraphrase the phrases miss, and it passes on purpose so the limit stays visible.
 - The quoted reply comes from press reports of the decision. Check it word for word against [the decision](https://decisions.civilresolutionbc.ca/crt/crtd/en/525448/1/document.do) before quoting it publicly.
