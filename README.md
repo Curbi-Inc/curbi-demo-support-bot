@@ -18,7 +18,16 @@ The table shows the replay run (see *Honest notes*). The live run's transcript i
 
 ## Replay a real burn
 
-[`burns/air-canada/`](burns/air-canada/) replays the chatbot reply from *Moffatt v. Air Canada* (2024 BCCRT 149) through Curbi: `node burns/air-canada/replay.mjs`. The burn is caught, an honest reply passes, and one documented paraphrase gets through on purpose.
+Each replay is one request to the Check API, with no install and no key. It exits non-zero if a verdict changes, so it can live in CI. In each one the burn is caught, an honest reply passes, and documented gaps get through on purpose.
+
+| Burn | Run | What a rule catches | What gets through on purpose |
+|---|---|---|---|
+| *Moffatt v. Air Canada* (2024 BCCRT 149) | `node burns/air-canada/replay.mjs` | a bereavement fare promised after travel | a paraphrase with none of the phrases |
+| The $1 Chevy Tahoe (2023) | `node burns/chevy-tahoe/replay.mjs` | "that's a deal" and "legally binding offer", and a $1 price | agreeing in other words; the injected instruction itself |
+| *Mata v. Avianca* (S.D.N.Y. 2023) | `node burns/mata-avianca/replay.mjs` | vouching that a case is real, and "I've verified" with no record of a check | a fabricated citation on its own |
+| Deloitte–DEWR report (2025), illustrative replies | `node burns/deloitte-dewr/replay.mjs` | "I've verified" or "we reviewed" with no record, and "fully referenced" | a fabricated quote; a verification claim in other words |
+
+Quotes marked as reported aren't cleared for public use; each burn's README says what to check first.
 
 ## How it works
 
