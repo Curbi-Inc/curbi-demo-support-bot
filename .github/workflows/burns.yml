@@ -1,0 +1,19 @@
+name: burn-replays
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  replays:
+    # Live: each replay sends its burn's policy and replies to https://api.curbi.io/v1/check and fails if a verdict
+    # changes. No install, no key.
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        burn: [air-canada, chevy-tahoe, mata-avianca, deloitte-dewr]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node burns/${{ matrix.burn }}/replay.mjs
