@@ -1,7 +1,7 @@
 {
   "name": "curbi-demo-support-bot",
   "version": "1.0.0",
-  "description": "An AI support bot tries to lie to customers. Curbi catches every lie before it is sent.",
+  "description": "Support-bot demo: configured checks flag price mismatches and unsupported action claims; documented gaps remain.",
   "scripts": {
     "redteam": "node redteam.mjs",
     "redteam:replay": "node redteam.mjs --replay"

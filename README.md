@@ -1,4 +1,4 @@
-# An AI support bot tries to lie. Curbi catches every lie before it is sent.
+# Curbi flags an unsupported refund claim in this support-bot demo.
 
 A billing-support bot for a $19 / $49 / $99 SaaS, built with the Vercel AI SDK. Its knowledge base is out of date, the way real ones are: it thinks Pro costs $29, that Team has unlimited seats, and that it can confirm refunds and cancellations itself.
 
